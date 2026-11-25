@@ -1,0 +1,20 @@
+name: CPU correctness and archived log audit
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cpu-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check tested source hashes
+        run: sha256sum -c results/tested_source.sha256
+      - name: Audit archived NPU results
+        run: python3 scripts/audit_log.py
+      - name: CPU emulation (tail padding)
+        run: bash cpu_test.sh 33 1 7
+      - name: CPU emulation (long dot product)
+        run: bash cpu_test.sh 8192 1 20

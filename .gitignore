@@ -1,0 +1,11 @@
+/build/
+/build_cpu/
+/build-*/
+__pycache__/
+*.pyc
+*.o
+*.so
+*.a
+*.zip
+.idea/
+.vscode/

@@ -1,0 +1,252 @@
+developer@[redacted-host]:/mnt/workspace/fp8_exact_matmul_910c$ bash run.sh 0 256 1 20
+-- ASC host runtime: /home/developer/Ascend/cann-9.0.0/lib64/libascendc_runtime.a
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/fp8_exact_matmul_910c/build
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -S/mnt/workspace/fp8_exact_matmul_910c -B/mnt/workspace/fp8_exact_matmul_910c/build --check-build-system CMakeFiles/Makefile.cmake 0
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_progress_start /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles /mnt/workspace/fp8_exact_matmul_910c/build//CMakeFiles/progress.marks
+/usr/bin/make  -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/usr/bin/make  -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/depend
+make[2]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+cd /mnt/workspace/fp8_exact_matmul_910c/build && /opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_depends "Unix Makefiles" /mnt/workspace/fp8_exact_matmul_910c /mnt/workspace/fp8_exact_matmul_910c /mnt/workspace/fp8_exact_matmul_910c/build /mnt/workspace/fp8_exact_matmul_910c/build /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/DependInfo.cmake --color=
+Dependencies file "CMakeFiles/demo.dir/fp8_matmul.asc.o.d" is newer than depends file "/mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/demo.dir/main.cpp.o.d" is newer than depends file "/mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/compiler_depend.internal".
+Consolidate compiler generated dependencies of target demo
+make[2]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/usr/bin/make  -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/build
+make[2]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+[ 33%] Building ASC object CMakeFiles/demo.dir/fp8_matmul.asc.o
+/home/developer/Ascend/cann-9.0.0/bin/bisheng  -I/mnt/workspace/fp8_exact_matmul_910c -I/home/developer/Ascend/cann-9.0.0/include -fPIC  --npu-arch=dav-2201 -MD -MT CMakeFiles/demo.dir/fp8_matmul.asc.o -MF CMakeFiles/demo.dir/fp8_matmul.asc.o.d -o CMakeFiles/demo.dir/fp8_matmul.asc.o -c --asc-aicore-lang /mnt/workspace/fp8_exact_matmul_910c/fp8_matmul.asc
+[ 66%] Linking CXX executable demo
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_link_script CMakeFiles/demo.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/demo.dir/fp8_matmul.asc.o CMakeFiles/demo.dir/main.cpp.o -o demo   -L/home/developer/Ascend/cann-9.0.0/lib64  -Wl,-rpath,/home/developer/Ascend/cann-9.0.0/lib64 -Wl,--push-state,--no-as-needed -Wl,--start-group /home/developer/Ascend/cann-9.0.0/lib64/libascendc_runtime.a -lascendcl -ltiling_api -lregister -lplatform -lunified_dlog -lc_sec -lmmpa -lprofapi /home/developer/Ascend/cann-9.0.0/lib64/libruntime.so /home/developer/Ascend/cann-9.0.0/lib64/liberror_manager.so /home/developer/Ascend/cann-9.0.0/lib64/libge_common_base.so /home/developer/Ascend/cann-9.0.0/lib64/libgraph_base.so /home/developer/Ascend/cann-9.0.0/lib64/libacl_rt.so -ldl -lm -Wl,--end-group -Wl,--pop-state -lpthread 
+make[2]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+[100%] Built target demo
+make[1]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_progress_start /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles 0
+NPU device 0; max 20 Cube blocks per launch; CPU decode/reconstruction
+decode E4M3FN finite=254 special_rejected=2 mismatch=0
+decode E5M2 finite=248 special_rejected=8 mismatch=0
+E4M3FN x E4M3FN K=256 pattern=0 tiles=72 partial_mismatch=0/73728 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.000793 checked_wall_seconds=0.017282 PASS
+  C[0,0] exact = 13702530836 * 2^(-18)
+E4M3FN x E4M3FN K=256 pattern=1 tiles=72 partial_mismatch=0/73728 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.000340 checked_wall_seconds=0.016761 PASS
+  C[0,0] exact = 13469017440256 * 2^(-18)
+E4M3FN x E4M3FN K=256 pattern=2 tiles=72 partial_mismatch=0/73728 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.000330 checked_wall_seconds=0.016795 PASS
+  C[0,0] exact = 52613349461 * 2^(-18)
+E4M3FN x E4M3FN K=256 pattern=3 tiles=72 partial_mismatch=0/73728 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.000322 checked_wall_seconds=0.016749 PASS
+  C[0,0] exact = 0 * 2^(-18)
+E4M3FN x E5M2 K=256 pattern=0 tiles=120 partial_mismatch=0/122880 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.000464 checked_wall_seconds=0.025921 PASS
+  C[0,0] exact = -773449378069273 * 2^(-25)
+E4M3FN x E5M2 K=256 pattern=1 tiles=120 partial_mismatch=0/122880 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.000457 checked_wall_seconds=0.025894 PASS
+  C[0,0] exact = 220676381741154304 * 2^(-25)
+E4M3FN x E5M2 K=256 pattern=2 tiles=120 partial_mismatch=0/122880 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.000457 checked_wall_seconds=0.025884 PASS
+  C[0,0] exact = 862017116176469 * 2^(-25)
+E4M3FN x E5M2 K=256 pattern=3 tiles=120 partial_mismatch=0/122880 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.000466 checked_wall_seconds=0.025881 PASS
+  C[0,0] exact = 0 * 2^(-25)
+E5M2 x E4M3FN K=256 pattern=0 tiles=120 partial_mismatch=0/122880 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.000453 checked_wall_seconds=0.025870 PASS
+  C[0,0] exact = -15598533713253 * 2^(-25)
+E5M2 x E4M3FN K=256 pattern=1 tiles=120 partial_mismatch=0/122880 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.000457 checked_wall_seconds=0.025922 PASS
+  C[0,0] exact = 220676381741154304 * 2^(-25)
+E5M2 x E4M3FN K=256 pattern=2 tiles=120 partial_mismatch=0/122880 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.000453 checked_wall_seconds=0.025872 PASS
+  C[0,0] exact = 862017116176469 * 2^(-25)
+E5M2 x E4M3FN K=256 pattern=3 tiles=120 partial_mismatch=0/122880 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.000487 checked_wall_seconds=0.025883 PASS
+  C[0,0] exact = 0 * 2^(-25)
+E5M2 x E5M2 K=256 pattern=0 tiles=200 partial_mismatch=0/204800 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.000792 checked_wall_seconds=0.041360 PASS
+  C[0,0] exact = -838070295300663064 * 2^(-32)
+E5M2 x E5M2 K=256 pattern=1 tiles=200 partial_mismatch=0/204800 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.000755 checked_wall_seconds=0.041355 PASS
+  C[0,0] exact = 3615561838447072116736 * 2^(-32)
+E5M2 x E5M2 K=256 pattern=2 tiles=200 partial_mismatch=0/204800 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.000753 checked_wall_seconds=0.041292 PASS
+  C[0,0] exact = 14123288431433875541 * 2^(-32)
+E5M2 x E5M2 K=256 pattern=3 tiles=200 partial_mismatch=0/204800 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.000757 checked_wall_seconds=0.041338 PASS
+  C[0,0] exact = 0 * 2^(-32)
+FINAL: PASS (all checked integer results exact)
+developer@[redacted-host]:/mnt/workspace/fp8_exact_matmul_910c$ bash run.sh 0 1024 1 20
+sh run.sh 0 8192 1 20-- ASC host runtime: /home/developer/Ascend/cann-9.0.0/lib64/libascendc_runtime.a
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/fp8_exact_matmul_910c/build
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -S/mnt/workspace/fp8_exact_matmul_910c -B/mnt/workspace/fp8_exact_matmul_910c/build --check-build-system CMakeFiles/Makefile.cmake 0
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_progress_start /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles /mnt/workspace/fp8_exact_matmul_910c/build//CMakeFiles/progress.marks
+/usr/bin/make  -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/usr/bin/make  -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/depend
+make[2]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+cd /mnt/workspace/fp8_exact_matmul_910c/build && /opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_depends "Unix Makefiles" /mnt/workspace/fp8_exact_matmul_910c /mnt/workspace/fp8_exact_matmul_910c /mnt/workspace/fp8_exact_matmul_910c/build /mnt/workspace/fp8_exact_matmul_910c/build /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/DependInfo.cmake --color=
+Dependencies file "CMakeFiles/demo.dir/fp8_matmul.asc.o.d" is newer than depends file "/mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/demo.dir/main.cpp.o.d" is newer than depends file "/mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/compiler_depend.internal".
+Consolidate compiler generated dependencies of target demo
+make[2]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/usr/bin/make  -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/build
+make[2]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+[ 33%] Building ASC object CMakeFiles/demo.dir/fp8_matmul.asc.o
+/home/developer/Ascend/cann-9.0.0/bin/bisheng  -I/mnt/workspace/fp8_exact_matmul_910c -I/home/developer/Ascend/cann-9.0.0/include -fPIC  --npu-arch=dav-2201 -MD -MT CMakeFiles/demo.dir/fp8_matmul.asc.o -MF CMakeFiles/demo.dir/fp8_matmul.asc.o.d -o CMakeFiles/demo.dir/fp8_matmul.asc.o -c --asc-aicore-lang /mnt/workspace/fp8_exact_matmul_910c/fp8_matmul.asc
+[ 66%] Linking CXX executable demo
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_link_script CMakeFiles/demo.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/demo.dir/fp8_matmul.asc.o CMakeFiles/demo.dir/main.cpp.o -o demo   -L/home/developer/Ascend/cann-9.0.0/lib64  -Wl,-rpath,/home/developer/Ascend/cann-9.0.0/lib64 -Wl,--push-state,--no-as-needed -Wl,--start-group /home/developer/Ascend/cann-9.0.0/lib64/libascendc_runtime.a -lascendcl -ltiling_api -lregister -lplatform -lunified_dlog -lc_sec -lmmpa -lprofapi /home/developer/Ascend/cann-9.0.0/lib64/libruntime.so /home/developer/Ascend/cann-9.0.0/lib64/liberror_manager.so /home/developer/Ascend/cann-9.0.0/lib64/libge_common_base.so /home/developer/Ascend/cann-9.0.0/lib64/libgraph_base.so /home/developer/Ascend/cann-9.0.0/lib64/libacl_rt.so -ldl -lm -Wl,--end-group -Wl,--pop-state -lpthread 
+make[2]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+[100%] Built target demo
+make[1]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_progress_start /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles 0
+NPU device 0; max 20 Cube blocks per launch; CPU decode/reconstruction
+decode E4M3FN finite=254 special_rejected=2 mismatch=0
+decode E5M2 finite=248 special_rejected=8 mismatch=0
+E4M3FN x E4M3FN K=1024 pattern=0 tiles=288 partial_mismatch=0/294912 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.001662 checked_wall_seconds=0.067663 PASS
+  C[0,0] exact = -19272362995 * 2^(-18)
+E4M3FN x E4M3FN K=1024 pattern=1 tiles=288 partial_mismatch=0/294912 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.001196 checked_wall_seconds=0.067068 PASS
+  C[0,0] exact = 53876069761024 * 2^(-18)
+E4M3FN x E4M3FN K=1024 pattern=2 tiles=288 partial_mismatch=0/294912 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.001179 checked_wall_seconds=0.067093 PASS
+  C[0,0] exact = 52613349717 * 2^(-18)
+E4M3FN x E4M3FN K=1024 pattern=3 tiles=288 partial_mismatch=0/294912 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.001160 checked_wall_seconds=0.067049 PASS
+  C[0,0] exact = 0 * 2^(-18)
+E4M3FN x E5M2 K=1024 pattern=0 tiles=480 partial_mismatch=0/491520 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.001843 checked_wall_seconds=0.104129 PASS
+  C[0,0] exact = -539723899472590 * 2^(-25)
+E4M3FN x E5M2 K=1024 pattern=1 tiles=480 partial_mismatch=0/491520 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.001860 checked_wall_seconds=0.104275 PASS
+  C[0,0] exact = 882705526964617216 * 2^(-25)
+E4M3FN x E5M2 K=1024 pattern=2 tiles=480 partial_mismatch=0/491520 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.001885 checked_wall_seconds=0.104469 PASS
+  C[0,0] exact = 862017116176725 * 2^(-25)
+E4M3FN x E5M2 K=1024 pattern=3 tiles=480 partial_mismatch=0/491520 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.001865 checked_wall_seconds=0.104052 PASS
+  C[0,0] exact = 0 * 2^(-25)
+E5M2 x E4M3FN K=1024 pattern=0 tiles=480 partial_mismatch=0/491520 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.001848 checked_wall_seconds=0.104260 PASS
+  C[0,0] exact = 530924140806846 * 2^(-25)
+E5M2 x E4M3FN K=1024 pattern=1 tiles=480 partial_mismatch=0/491520 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.001870 checked_wall_seconds=0.104283 PASS
+  C[0,0] exact = 882705526964617216 * 2^(-25)
+E5M2 x E4M3FN K=1024 pattern=2 tiles=480 partial_mismatch=0/491520 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.001848 checked_wall_seconds=0.104032 PASS
+  C[0,0] exact = 862017116176725 * 2^(-25)
+E5M2 x E4M3FN K=1024 pattern=3 tiles=480 partial_mismatch=0/491520 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.001883 checked_wall_seconds=0.104031 PASS
+  C[0,0] exact = 0 * 2^(-25)
+E5M2 x E5M2 K=1024 pattern=0 tiles=800 partial_mismatch=0/819200 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.003046 checked_wall_seconds=0.165935 PASS
+  C[0,0] exact = 5378185432709777997 * 2^(-32)
+E5M2 x E5M2 K=1024 pattern=1 tiles=800 partial_mismatch=0/819200 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.003023 checked_wall_seconds=0.165428 PASS
+  C[0,0] exact = 14462247353788288466944 * 2^(-32)
+E5M2 x E5M2 K=1024 pattern=2 tiles=800 partial_mismatch=0/819200 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.003019 checked_wall_seconds=0.165622 PASS
+  C[0,0] exact = 14123288431433875797 * 2^(-32)
+E5M2 x E5M2 K=1024 pattern=3 tiles=800 partial_mismatch=0/819200 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.003010 checked_wall_seconds=0.165397 PASS
+  C[0,0] exact = 0 * 2^(-32)
+FINAL: PASS (all checked integer results exact)
+developer@[redacted-host]:/mnt/workspace/fp8_exact_matmul_910c$ bash run.sh 0 4096 1 20
+-- ASC host runtime: /home/developer/Ascend/cann-9.0.0/lib64/libascendc_runtime.a
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/fp8_exact_matmul_910c/build
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -S/mnt/workspace/fp8_exact_matmul_910c -B/mnt/workspace/fp8_exact_matmul_910c/build --check-build-system CMakeFiles/Makefile.cmake 0
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_progress_start /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles /mnt/workspace/fp8_exact_matmul_910c/build//CMakeFiles/progress.marks
+/usr/bin/make  -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/usr/bin/make  -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/depend
+make[2]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+cd /mnt/workspace/fp8_exact_matmul_910c/build && /opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_depends "Unix Makefiles" /mnt/workspace/fp8_exact_matmul_910c /mnt/workspace/fp8_exact_matmul_910c /mnt/workspace/fp8_exact_matmul_910c/build /mnt/workspace/fp8_exact_matmul_910c/build /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/DependInfo.cmake --color=
+Dependencies file "CMakeFiles/demo.dir/fp8_matmul.asc.o.d" is newer than depends file "/mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/demo.dir/main.cpp.o.d" is newer than depends file "/mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/compiler_depend.internal".
+Consolidate compiler generated dependencies of target demo
+make[2]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/usr/bin/make  -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/build
+make[2]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+[ 33%] Building ASC object CMakeFiles/demo.dir/fp8_matmul.asc.o
+/home/developer/Ascend/cann-9.0.0/bin/bisheng  -I/mnt/workspace/fp8_exact_matmul_910c -I/home/developer/Ascend/cann-9.0.0/include -fPIC  --npu-arch=dav-2201 -MD -MT CMakeFiles/demo.dir/fp8_matmul.asc.o -MF CMakeFiles/demo.dir/fp8_matmul.asc.o.d -o CMakeFiles/demo.dir/fp8_matmul.asc.o -c --asc-aicore-lang /mnt/workspace/fp8_exact_matmul_910c/fp8_matmul.asc
+[ 66%] Linking CXX executable demo
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_link_script CMakeFiles/demo.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/demo.dir/fp8_matmul.asc.o CMakeFiles/demo.dir/main.cpp.o -o demo   -L/home/developer/Ascend/cann-9.0.0/lib64  -Wl,-rpath,/home/developer/Ascend/cann-9.0.0/lib64 -Wl,--push-state,--no-as-needed -Wl,--start-group /home/developer/Ascend/cann-9.0.0/lib64/libascendc_runtime.a -lascendcl -ltiling_api -lregister -lplatform -lunified_dlog -lc_sec -lmmpa -lprofapi /home/developer/Ascend/cann-9.0.0/lib64/libruntime.so /home/developer/Ascend/cann-9.0.0/lib64/liberror_manager.so /home/developer/Ascend/cann-9.0.0/lib64/libge_common_base.so /home/developer/Ascend/cann-9.0.0/lib64/libgraph_base.so /home/developer/Ascend/cann-9.0.0/lib64/libacl_rt.so -ldl -lm -Wl,--end-group -Wl,--pop-state -lpthread 
+make[2]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+[100%] Built target demo
+make[1]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_progress_start /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles 0
+NPU device 0; max 20 Cube blocks per launch; CPU decode/reconstruction
+decode E4M3FN finite=254 special_rejected=2 mismatch=0
+decode E5M2 finite=248 special_rejected=8 mismatch=0
+E4M3FN x E4M3FN K=4096 pattern=0 tiles=1152 partial_mismatch=0/1179648 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.005003 checked_wall_seconds=0.267297 PASS
+  C[0,0] exact = -186854927607 * 2^(-18)
+E4M3FN x E4M3FN K=4096 pattern=1 tiles=1152 partial_mismatch=0/1179648 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.004420 checked_wall_seconds=0.266474 PASS
+  C[0,0] exact = 215504279044096 * 2^(-18)
+E4M3FN x E4M3FN K=4096 pattern=2 tiles=1152 partial_mismatch=0/1179648 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.004366 checked_wall_seconds=0.266506 PASS
+  C[0,0] exact = 52613350741 * 2^(-18)
+E4M3FN x E4M3FN K=4096 pattern=3 tiles=1152 partial_mismatch=0/1179648 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.004393 checked_wall_seconds=0.266686 PASS
+  C[0,0] exact = 0 * 2^(-18)
+E4M3FN x E5M2 K=4096 pattern=0 tiles=1920 partial_mismatch=0/1966080 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.007231 checked_wall_seconds=0.414954 PASS
+  C[0,0] exact = 62547224668773 * 2^(-25)
+E4M3FN x E5M2 K=4096 pattern=1 tiles=1920 partial_mismatch=0/1966080 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.007274 checked_wall_seconds=0.414763 PASS
+  C[0,0] exact = 3530822107858468864 * 2^(-25)
+E4M3FN x E5M2 K=4096 pattern=2 tiles=1920 partial_mismatch=0/1966080 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.007292 checked_wall_seconds=0.414990 PASS
+  C[0,0] exact = 862017116177749 * 2^(-25)
+E4M3FN x E5M2 K=4096 pattern=3 tiles=1920 partial_mismatch=0/1966080 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.007307 checked_wall_seconds=0.414695 PASS
+  C[0,0] exact = 0 * 2^(-25)
+E5M2 x E4M3FN K=4096 pattern=0 tiles=1920 partial_mismatch=0/1966080 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.007265 checked_wall_seconds=0.414838 PASS
+  C[0,0] exact = -1332433202452145 * 2^(-25)
+E5M2 x E4M3FN K=4096 pattern=1 tiles=1920 partial_mismatch=0/1966080 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.007169 checked_wall_seconds=0.414767 PASS
+  C[0,0] exact = 3530822107858468864 * 2^(-25)
+E5M2 x E4M3FN K=4096 pattern=2 tiles=1920 partial_mismatch=0/1966080 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.007225 checked_wall_seconds=0.414692 PASS
+  C[0,0] exact = 862017116177749 * 2^(-25)
+E5M2 x E4M3FN K=4096 pattern=3 tiles=1920 partial_mismatch=0/1966080 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.007261 checked_wall_seconds=0.414915 PASS
+  C[0,0] exact = 0 * 2^(-25)
+E5M2 x E5M2 K=4096 pattern=0 tiles=3200 partial_mismatch=0/3276800 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.012054 checked_wall_seconds=0.661495 PASS
+  C[0,0] exact = 10907244705227086704 * 2^(-32)
+E5M2 x E5M2 K=4096 pattern=1 tiles=3200 partial_mismatch=0/3276800 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.011884 checked_wall_seconds=0.661571 PASS
+  C[0,0] exact = 57848989415153153867776 * 2^(-32)
+E5M2 x E5M2 K=4096 pattern=2 tiles=3200 partial_mismatch=0/3276800 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.011877 checked_wall_seconds=0.661566 PASS
+  C[0,0] exact = 14123288431433876821 * 2^(-32)
+E5M2 x E5M2 K=4096 pattern=3 tiles=3200 partial_mismatch=0/3276800 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.012650 checked_wall_seconds=0.662230 PASS
+  C[0,0] exact = 0 * 2^(-32)
+FINAL: PASS (all checked integer results exact)
+developer@[redacted-host]:/mnt/workspace/fp8_exact_matmul_910c$ bash run.sh 0 8192 1 20
+-- ASC host runtime: /home/developer/Ascend/cann-9.0.0/lib64/libascendc_runtime.a
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/workspace/fp8_exact_matmul_910c/build
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -S/mnt/workspace/fp8_exact_matmul_910c -B/mnt/workspace/fp8_exact_matmul_910c/build --check-build-system CMakeFiles/Makefile.cmake 0
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_progress_start /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles /mnt/workspace/fp8_exact_matmul_910c/build//CMakeFiles/progress.marks
+/usr/bin/make  -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/usr/bin/make  -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/depend
+make[2]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+cd /mnt/workspace/fp8_exact_matmul_910c/build && /opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_depends "Unix Makefiles" /mnt/workspace/fp8_exact_matmul_910c /mnt/workspace/fp8_exact_matmul_910c /mnt/workspace/fp8_exact_matmul_910c/build /mnt/workspace/fp8_exact_matmul_910c/build /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/DependInfo.cmake --color=
+Dependencies file "CMakeFiles/demo.dir/fp8_matmul.asc.o.d" is newer than depends file "/mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/demo.dir/main.cpp.o.d" is newer than depends file "/mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles/demo.dir/compiler_depend.internal".
+Consolidate compiler generated dependencies of target demo
+make[2]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/usr/bin/make  -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/build
+make[2]: Entering directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+[ 33%] Building ASC object CMakeFiles/demo.dir/fp8_matmul.asc.o
+/home/developer/Ascend/cann-9.0.0/bin/bisheng  -I/mnt/workspace/fp8_exact_matmul_910c -I/home/developer/Ascend/cann-9.0.0/include -fPIC  --npu-arch=dav-2201 -MD -MT CMakeFiles/demo.dir/fp8_matmul.asc.o -MF CMakeFiles/demo.dir/fp8_matmul.asc.o.d -o CMakeFiles/demo.dir/fp8_matmul.asc.o -c --asc-aicore-lang /mnt/workspace/fp8_exact_matmul_910c/fp8_matmul.asc
+[ 66%] Linking CXX executable demo
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_link_script CMakeFiles/demo.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/demo.dir/fp8_matmul.asc.o CMakeFiles/demo.dir/main.cpp.o -o demo   -L/home/developer/Ascend/cann-9.0.0/lib64  -Wl,-rpath,/home/developer/Ascend/cann-9.0.0/lib64 -Wl,--push-state,--no-as-needed -Wl,--start-group /home/developer/Ascend/cann-9.0.0/lib64/libascendc_runtime.a -lascendcl -ltiling_api -lregister -lplatform -lunified_dlog -lc_sec -lmmpa -lprofapi /home/developer/Ascend/cann-9.0.0/lib64/libruntime.so /home/developer/Ascend/cann-9.0.0/lib64/liberror_manager.so /home/developer/Ascend/cann-9.0.0/lib64/libge_common_base.so /home/developer/Ascend/cann-9.0.0/lib64/libgraph_base.so /home/developer/Ascend/cann-9.0.0/lib64/libacl_rt.so -ldl -lm -Wl,--end-group -Wl,--pop-state -lpthread 
+make[2]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+[100%] Built target demo
+make[1]: Leaving directory '/mnt/workspace/fp8_exact_matmul_910c/build'
+/opt/buildtools/cmake-3.20.5-linux-aarch64/bin/cmake -E cmake_progress_start /mnt/workspace/fp8_exact_matmul_910c/build/CMakeFiles 0
+NPU device 0; max 20 Cube blocks per launch; CPU decode/reconstruction
+decode E4M3FN finite=254 special_rejected=2 mismatch=0
+decode E5M2 finite=248 special_rejected=8 mismatch=0
+E4M3FN x E4M3FN K=8192 pattern=0 tiles=2304 partial_mismatch=0/2359296 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.009326 checked_wall_seconds=0.534478 PASS
+  C[0,0] exact = -110607356139 * 2^(-18)
+E4M3FN x E4M3FN K=8192 pattern=1 tiles=2304 partial_mismatch=0/2359296 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.008808 checked_wall_seconds=0.533765 PASS
+  C[0,0] exact = 431008558088192 * 2^(-18)
+E4M3FN x E4M3FN K=8192 pattern=2 tiles=2304 partial_mismatch=0/2359296 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.008710 checked_wall_seconds=0.533579 PASS
+  C[0,0] exact = 52613352107 * 2^(-18)
+E4M3FN x E4M3FN K=8192 pattern=3 tiles=2304 partial_mismatch=0/2359296 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.008763 checked_wall_seconds=0.533889 PASS
+  C[0,0] exact = 0 * 2^(-18)
+E4M3FN x E5M2 K=8192 pattern=0 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.014376 checked_wall_seconds=0.830348 PASS
+  C[0,0] exact = 831751668954157 * 2^(-25)
+E4M3FN x E5M2 K=8192 pattern=1 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.014345 checked_wall_seconds=0.830086 PASS
+  C[0,0] exact = 7061644215716937728 * 2^(-25)
+E4M3FN x E5M2 K=8192 pattern=2 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.014374 checked_wall_seconds=0.830191 PASS
+  C[0,0] exact = 862017116179115 * 2^(-25)
+E4M3FN x E5M2 K=8192 pattern=3 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.014447 checked_wall_seconds=0.829942 PASS
+  C[0,0] exact = 0 * 2^(-25)
+E5M2 x E4M3FN K=8192 pattern=0 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.014412 checked_wall_seconds=0.830349 PASS
+  C[0,0] exact = 3716126874423666 * 2^(-25)
+E5M2 x E4M3FN K=8192 pattern=1 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.014691 checked_wall_seconds=0.830030 PASS
+  C[0,0] exact = 7061644215716937728 * 2^(-25)
+E5M2 x E4M3FN K=8192 pattern=2 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.014327 checked_wall_seconds=0.830017 PASS
+  C[0,0] exact = 862017116179115 * 2^(-25)
+E5M2 x E4M3FN K=8192 pattern=3 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.014678 checked_wall_seconds=0.830249 PASS
+  C[0,0] exact = 0 * 2^(-25)
+E5M2 x E5M2 K=8192 pattern=0 tiles=6400 partial_mismatch=0/6553600 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.024247 checked_wall_seconds=1.324451 PASS
+  C[0,0] exact = -34085016712629801198 * 2^(-32)
+E5M2 x E5M2 K=8192 pattern=1 tiles=6400 partial_mismatch=0/6553600 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.024170 checked_wall_seconds=1.323856 PASS
+  C[0,0] exact = 115697978830306307735552 * 2^(-32)
+E5M2 x E5M2 K=8192 pattern=2 tiles=6400 partial_mismatch=0/6553600 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.024099 checked_wall_seconds=1.324171 PASS
+  C[0,0] exact = 14123288431433878187 * 2^(-32)
+E5M2 x E5M2 K=8192 pattern=3 tiles=6400 partial_mismatch=0/6553600 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.024128 checked_wall_seconds=1.325021 PASS
+  C[0,0] exact = 0 * 2^(-32)
+FINAL: PASS (all checked integer results exact)

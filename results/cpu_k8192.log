@@ -1,0 +1,36 @@
+CPU-only emulation of partial INT8 tiles; NOT NPU execution
+decode E4M3FN finite=254 special_rejected=2 mismatch=0
+decode E5M2 finite=248 special_rejected=8 mismatch=0
+E4M3FN x E4M3FN K=8192 pattern=0 tiles=2304 partial_mismatch=0/2359296 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.009605 checked_wall_seconds=0.075741 PASS
+  C[0,0] exact = -110607356139 * 2^(-18)
+E4M3FN x E4M3FN K=8192 pattern=1 tiles=2304 partial_mismatch=0/2359296 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.009564 checked_wall_seconds=0.074530 PASS
+  C[0,0] exact = 431008558088192 * 2^(-18)
+E4M3FN x E4M3FN K=8192 pattern=2 tiles=2304 partial_mismatch=0/2359296 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.009624 checked_wall_seconds=0.075823 PASS
+  C[0,0] exact = 52613352107 * 2^(-18)
+E4M3FN x E4M3FN K=8192 pattern=3 tiles=2304 partial_mismatch=0/2359296 final_mismatch=0/1024 exponent=-18 transfer_launch_seconds=0.009443 checked_wall_seconds=0.074006 PASS
+  C[0,0] exact = 0 * 2^(-18)
+E4M3FN x E5M2 K=8192 pattern=0 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.015941 checked_wall_seconds=0.119216 PASS
+  C[0,0] exact = 831751668954157 * 2^(-25)
+E4M3FN x E5M2 K=8192 pattern=1 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.016190 checked_wall_seconds=0.116856 PASS
+  C[0,0] exact = 7061644215716937728 * 2^(-25)
+E4M3FN x E5M2 K=8192 pattern=2 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.016299 checked_wall_seconds=0.117673 PASS
+  C[0,0] exact = 862017116179115 * 2^(-25)
+E4M3FN x E5M2 K=8192 pattern=3 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.016493 checked_wall_seconds=0.118072 PASS
+  C[0,0] exact = 0 * 2^(-25)
+E5M2 x E4M3FN K=8192 pattern=0 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.016572 checked_wall_seconds=0.118400 PASS
+  C[0,0] exact = 3716126874423666 * 2^(-25)
+E5M2 x E4M3FN K=8192 pattern=1 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.018590 checked_wall_seconds=0.120549 PASS
+  C[0,0] exact = 7061644215716937728 * 2^(-25)
+E5M2 x E4M3FN K=8192 pattern=2 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.016736 checked_wall_seconds=0.125400 PASS
+  C[0,0] exact = 862017116179115 * 2^(-25)
+E5M2 x E4M3FN K=8192 pattern=3 tiles=3840 partial_mismatch=0/3932160 final_mismatch=0/1024 exponent=-25 transfer_launch_seconds=0.016538 checked_wall_seconds=0.120163 PASS
+  C[0,0] exact = 0 * 2^(-25)
+E5M2 x E5M2 K=8192 pattern=0 tiles=6400 partial_mismatch=0/6553600 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.026623 checked_wall_seconds=0.186665 PASS
+  C[0,0] exact = -34085016712629801198 * 2^(-32)
+E5M2 x E5M2 K=8192 pattern=1 tiles=6400 partial_mismatch=0/6553600 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.027428 checked_wall_seconds=0.189093 PASS
+  C[0,0] exact = 115697978830306307735552 * 2^(-32)
+E5M2 x E5M2 K=8192 pattern=2 tiles=6400 partial_mismatch=0/6553600 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.026796 checked_wall_seconds=0.187429 PASS
+  C[0,0] exact = 14123288431433878187 * 2^(-32)
+E5M2 x E5M2 K=8192 pattern=3 tiles=6400 partial_mismatch=0/6553600 final_mismatch=0/1024 exponent=-32 transfer_launch_seconds=0.026726 checked_wall_seconds=0.187231 PASS
+  C[0,0] exact = 0 * 2^(-32)
+FINAL: PASS (all checked integer results exact)
